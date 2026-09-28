@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ash — Developer Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--bg:#070b16;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--tx:#e8ecf8;--mut:#8a93b2;--cy:#22d3ee;--pk:#f472b6;--pu:#a78bfa;--gr:#34d399;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+#bg{position:fixed;inset:0;z-index:-1}
+.glow{position:fixed;z-index:-1;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.25}
+.g1{background:var(--pu);top:-140px;left:-120px}.g2{background:var(--cy);bottom:-160px;right:-120px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;backdrop-filter:blur(14px);background:rgba(7,11,22,.6);border-bottom:1px solid var(--line)}
+nav b{color:var(--cy)}nav div{display:flex;gap:22px}
+nav a{color:var(--mut);text-decoration:none;font-size:.9rem;transition:.2s}nav a:hover{color:var(--cy)}
+section{max-width:1080px;margin:auto;padding:90px 5vw 30px}
+h2{font-size:1.9rem;margin-bottom:34px}h2 span{color:var(--cy)}
+.hero{min-height:88vh;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.tag{color:var(--gr);font-size:.9rem}
+h1{font-size:clamp(2.8rem,8vw,5.2rem);line-height:1.05;margin:10px 0}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--cy),var(--pu),var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-size:1.25rem;color:var(--mut);min-height:2em}.role b{color:var(--tx)}
+.cur{display:inline-block;width:2px;height:1.1em;background:var(--cy);vertical-align:middle;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.hero p.d{color:var(--mut);max-width:520px;margin:16px 0 26px}
+.btn{display:inline-block;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;margin:0 10px 10px 0;transition:.25s}
+.b1{background:linear-gradient(90deg,var(--cy),var(--pu));color:#06101f}.b1:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(34,211,238,.35)}
+.b2{border:1px solid var(--line);color:var(--tx)}.b2:hover{border-color:var(--cy);color:var(--cy)}
+.term{background:#0b1222;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(167,139,250,.15);overflow:hidden;font-size:.82rem}
+.term .bar{display:flex;gap:7px;padding:11px 14px;background:rgba(255,255,255,.04)}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+.term pre{padding:18px;white-space:pre-wrap;color:#c5cdea}
+.k{color:var(--pk)}.s{color:var(--gr)}.f{color:var(--cy)}.c{color:#5b6488}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;backdrop-filter:blur(10px);transition:.3s}
+.stat{text-align:center}.stat b{display:block;font-size:2rem;color:var(--cy)}.stat span{color:var(--mut);font-size:.85rem}
+.card:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:0 14px 40px rgba(34,211,238,.12)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about p{color:var(--mut);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:6px 14px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.sk{margin-bottom:16px}.sk div{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+.sk .t{height:7px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
+.sk .t i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--cy),var(--pu));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.proj{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;border-color:rgba(167,139,250,.35)}
+.proj h3{font-size:1.6rem;margin:6px 0}.proj ul{margin:14px 0 18px 18px;color:var(--mut)}.proj li{margin-bottom:6px}
+.badge{display:inline-block;padding:4px 12px;border-radius:99px;background:rgba(244,114,182,.15);color:var(--pk);font-size:.75rem}
+.flow{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.flow div{padding:12px 16px;border-radius:10px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.25);font-size:.82rem}
+.flow div:not(:last-child)::after{content:"↓";display:block;text-align:center;color:var(--pu);margin-top:8px;margin-bottom:-14px}
+.card h4{margin-bottom:6px}.card p{color:var(--mut);font-size:.92rem}
+.ic{font-size:1.6rem;margin-bottom:8px}
+.cta{text-align:center}.cta .card{padding:50px 20px;border-color:rgba(34,211,238,.35)}
+.cta h2{margin-bottom:10px}.cta p{color:var(--mut);margin-bottom:22px}
+footer{text-align:center;color:var(--mut);padding:50px 5vw;font-size:.82rem}
+.rv{opacity:0;transform:translateY(30px);transition:1s}.rv.on{opacity:1;transform:none}
+@media(max-width:800px){.hero,.about,.proj{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}nav div{display:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div class="glow g1"></div><div class="glow g2"></div>
+<nav><b class="mono">&lt;Ash /&gt;</b><div><a href="#about">About</a><a href="#skills">Skills</a><a href="#project">Project</a><a href="#strengths">Strengths</a><a href="#contact">Contact</a></div></nav>
+
+<section class="hero">
+<div>
+<span class="tag mono">$ whoami</span>
+<h1>Hi, I'm <em>Ash</em></h1>
+<div class="role mono">&gt; <b id="typed"></b><span class="cur"></span></div>
+<p class="d">First-year CSE student at USICT, India. I build practical tech products, from backend logic to pitch-ready prototypes, and compete at Smart India Hackathon 2026.</p>
+<a class="btn b1" href="#project">View My Work</a><a class="btn b2" href="#contact">Get in Touch</a>
+</div>
+<div class="term mono">
+<div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="c">// ash.js</span>
+<span class="k">const</span> <span class="f">ash</span> = {
+  role: <span class="s">"Student Developer"</span>,
+  college: <span class="s">"USICT"</span>,
+  course: <span class="s">"B.Tech CSE (1st Year)"</span>,
+  team: <span class="s">"NexCodex"</span>,
+  hackathon: <span class="s">"SIH 2026"</span>,
+  doing: <span class="s">"DSA in C++"</span>,
+  buildsThings: <span class="k">true</span>
+};</pre>
+</div>
+</section>
+
+<section style="padding-top:10px"><div class="stats rv">
+<div class="stat"><b data-n="93.2" data-s="%">0</b><span>10th &amp; 12th Boards</span></div>
+<div class="stat"><b data-n="6" data-s="">0</b><span>Member Team</span></div>
+<div class="stat"><b>SIH '26</b><span>Finalist Prep</span></div>
+<div class="stat"><b>C++</b><span>DSA Journey</span></div>
+</div></section>
+
+<section id="about"><h2 class="rv"><span>/</span> About Me</h2>
+<div class="about rv">
+<div><p>I'm a curious, hands-on developer who learns by shipping. I'm the primary technical contributor on my SIH 2026 team, where I built the full backend and allocation logic for our hostel management solution.</p>
+<p>Outside the project, I'm sharpening problem-solving with Data Structures &amp; Algorithms in C++, and exploring web architecture, scripting and design.</p></div>
+<div class="card"><h4 class="mono" style="color:var(--cy)">Currently</h4>
+<div class="chips" style="margin-top:12px"><span>DSA in C++</span><span>SIH 2026 Finals Prep</span><span>Web Architecture</span></div></div>
+</div></section>
+
+<section id="skills"><h2 class="rv"><span>/</span> Skills</h2>
+<div class="about rv">
+<div class="card">
+<div class="sk"><div><span>C++ (DSA)</span></div><div class="t"><i data-w="80"></i></div></div>
+<div class="sk"><div><span>Google Apps Script</span></div><div class="t"><i data-w="85"></i></div></div>
+<div class="sk"><div><span>JavaScript</span></div><div class="t"><i data-w="75"></i></div></div>
+<div class="sk"><div><span>HTML / CSS / Tailwind</span></div><div class="t"><i data-w="78"></i></div></div>
+<div class="sk"><div><span>Python</span></div><div class="t"><i data-w="65"></i></div></div>
+<div class="sk"><div><span>C</span></div><div class="t"><i data-w="65"></i></div></div>
+</div>
+<div class="card"><h4 class="mono" style="color:var(--pk);margin-bottom:12px">Toolbox</h4>
+<div class="chips"><span>Google Sheets DB</span><span>REST / Web Apps</span><span>GitHub</span><span>Algorithms</span><span>Haversine Geo Logic</span><span>SHA-256 Auth</span><span>Image Editing</span><span>Pitch Decks</span></div></div>
+</div></section>
+
+<section id="project"><h2 class="rv"><span>/</span> Featured Project</h2>
+<div class="card proj rv">
+<div><span class="badge mono">SIH 2026 · USICT002</span>
+<h3>Hostelify</h3>
+<p style="color:var(--mut)">A Smart Hostel Allocation &amp; Optimization System that assigns rooms fairly and automatically, with no paid APIs.</p>
+<ul>
+<li>Multi-level priority engine: PWD → outside-NCR → zone/distance → student ID</li>
+<li>Zone-based fairness: farthest states get highest priority</li>
+<li>Hard constraints (gender, capacity) plus soft scoring (hostel, year, course)</li>
+<li>PIN-based NCR detection and free Haversine distance calculation</li>
+<li>Secure admin login (SHA-256) and double-run protection</li>
+</ul>
+<div class="chips"><span>Google Apps Script</span><span>Google Sheets</span><span>JavaScript</span><span>HTML/CSS</span><span>Tailwind</span></div></div>
+<div class="flow mono"><div>Student registers</div><div>PIN → NCR + distance calc</div><div>Priority sort + constraints</div><div>Soft-score room match</div><div>Allocation published</div></div>
+</div></section>
+
+<section id="strengths"><h2 class="rv"><span>/</span> Strengths</h2>
+<div class="grid rv">
+<div class="card"><div class="ic">🧭</div><h4>Leadership</h4><p>Take ownership and keep the team moving toward the goal.</p></div>
+<div class="card"><div class="ic">🤝</div><h4>Coordination</h4><p>Align six people, deadlines and deliverables smoothly.</p></div>
+<div class="card"><div class="ic">🎤</div><h4>Public Speaking</h4><p>Confident pitching of ideas to judges and audiences.</p></div>
+<div class="card"><div class="ic">💬</div><h4>Communication</h4><p>Friendly, extroverted and easy to collaborate with.</p></div>
+</div></section>
+
+<section id="contact" class="cta"><div class="card rv">
+<h2>Let's <span style="color:var(--cy)">build</span> something</h2>
+<p>Open to clubs, teams, hackathons and collaborations.</p>
+<a class="btn b1" href="mailto:your-email@example.com">Email Me</a>
+<a class="btn b2" href="https://github.com/your-username">GitHub</a>
+<a class="btn b2" href="https://linkedin.com/in/your-username">LinkedIn</a>
+</div></section>
+<footer class="mono">© 2026 Ash · Built with code &amp; caffeine</footer>
+
+<script>
+// particle network
+const cv=document.getElementById('bg'),cx=cv.getContext('2d');let W,H,P=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:Math.min(90,W/14)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))}
+rs();addEventListener('resize',rs);
+(function loop(){cx.clearRect(0,0,W,H);
+for(const a of P){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+cx.fillStyle='rgba(34,211,238,.7)';cx.beginPath();cx.arc(a.x,a.y,1.6,0,7);cx.fill();
+for(const b of P){const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){cx.strokeStyle='rgba(167,139,250,'+(.18*(1-d/120))+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}}
+requestAnimationFrame(loop)})();
+// typing
+const ph=['Student Developer','Backend & Logic Builder','SIH 2026 Competitor','DSA in C++'];let i=0,j=0,del=false;const el=document.getElementById('typed');
+(function ty(){const w=ph[i];el.textContent=w.slice(0,j);
+if(!del&&j===w.length){del=true;return setTimeout(ty,1400)}
+if(del&&j===0){del=false;i=(i+1)%ph.length}
+j+=del?-1:1;setTimeout(ty,del?40:80)})();
+// reveal + counters + bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('on');
+t.querySelectorAll('[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');
+t.querySelectorAll('[data-n]').forEach(n=>{const m=+n.dataset.n,dec=String(m).includes('.');let v=0;const st=setInterval(()=>{v+=m/40;if(v>=m){v=m;clearInterval(st)}n.textContent=(dec?v.toFixed(1):Math.round(v))+n.dataset.s},30)});
+io.unobserve(t)}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>

@@ -61,6 +61,17 @@ h1 em{font-style:normal;background:linear-gradient(90deg,var(--cy),var(--pu),var
 footer{text-align:center;color:var(--mut);padding:50px 5vw;font-size:.82rem}
 .rv{opacity:0;transform:translateY(30px);transition:1s}.rv.on{opacity:1;transform:none}
 @media(max-width:800px){.hero,.about,.proj{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}nav div{display:none}}
+.mini-btn{
+  padding:4px 12px;
+  border-radius:99px;
+  font-size:.75rem;
+  font-weight:600;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--cy),var(--pu));  /* button ka color */
+  color:#06101f;                                          /* text ka color */
+  transition:.25s;
+}
+.mini-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(34,211,238,.35)}
 </style>
 </head>
 <body>
@@ -108,7 +119,7 @@ footer{text-align:center;color:var(--mut);padding:50px 5vw;font-size:.82rem}
 <section id="skills"><h2 class="rv"><span>/</span> Skills</h2>
 <div class="about rv">
 <div class="card">
-<div class="sk"><div><span>C++ (DSA)</span></div><div class="t"><i data-w="80"></i></div></div>
+<div class="sk"><div><span>C++ (DSA)</span><a class="mini-btn" href="https://github.com/ashishbishnoi/DSA-in-CPP" target="_blank" rel="noopener">View DSA Repo ↗</a></div><div class="t"><i data-w="80"></i></div></div>
 <div class="sk"><div><span>Google Apps Script</span></div><div class="t"><i data-w="85"></i></div></div>
 <div class="sk"><div><span>JavaScript</span></div><div class="t"><i data-w="75"></i></div></div>
 <div class="sk"><div><span>HTML / CSS / Tailwind</span></div><div class="t"><i data-w="78"></i></div></div>

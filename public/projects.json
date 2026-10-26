@@ -1,0 +1,19 @@
+[
+{"id":"hostelify","title":"Hostelify","badge":"SIH 2026","category":"Hackathon",
+"summary":"A Smart Hostel Allocation & Optimization System that assigns rooms fairly and automatically, with no paid APIs.",
+"highlights":["Multi-level priority engine: PWD → outside-NCR → zone/distance → student ID","Zone-based fairness: farthest states get highest priority","Hard constraints (gender, capacity) plus soft scoring (hostel, year, course)","PIN-based NCR detection and free Haversine distance calculation","Secure admin login (SHA-256) and double-run protection"],
+"stack":["Google Apps Script","Google Sheets","JavaScript","HTML/CSS","Tailwind"],
+"flow":["Student registers","PIN → NCR + distance calc","Priority sort + constraints","Soft-score room match","Allocation published"]},
+{"id":"dawasarthi","title":"DawaSarthi","badge":"Azinhack 2026","category":"Hackathon",
+"summary":"A mobile-first PWA that scans medicine strips and prescriptions, gives a Green/Amber/Red trust card, and alerts caregivers when a dose is missed.",
+"highlights":["Vision LLM reads strip/box/prescription into an editable form, with low-confidence fields flagged","Deterministic rules engine decides risk (expiry, batch, strip vs box mismatch, community reports)","TinyFish web agent checks official CDSCO batch alerts and verifies MRP online (read-only)","Smart reminders with push, plus caregiver escalation via SMS/WhatsApp after patient consent","Prescription mode: 1-0-1 patterns auto-convert to a full dose schedule"],
+"stack":["Next.js","TypeScript","Supabase","Tailwind","Gemini API","TinyFish","Twilio","PWA"],
+"flow":["Scan strip / prescription","Vision LLM extracts data","Rules engine → Green / Amber / Red","TinyFish alert + online check","Reminders + caregiver alert"],
+"link":"https://dawasarthi.vercel.app/login","linkLabel":"Live Demo"},
+{"id":"dsa","title":"DSA in C++","badge":"Practice","category":"DSA",
+"summary":"My Data Structures & Algorithms practice in C++, kept public on GitHub.",
+"highlights":["Problems solved in C++","Public repo, updated as I learn"],
+"stack":["C++","Algorithms","GitHub"],
+"flow":[],
+"link":"https://github.com/ashishbishnoi/DSA-in-CPP","linkLabel":"View Repo"}
+]
